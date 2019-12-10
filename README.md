@@ -17,6 +17,12 @@ But it may work with XP and Vista, too.
 
 Source code is licensed under GNU GENERAL PUBLIC LICENSE v3.0
 
+Build Instructions
+----------
+
+- Download tinyxml into tinyxml directory
+- Install WTL10 from nuget
+- Install ATL with Spectre Mitigations from Visual Studio Installer
 
 Known Bugs
 ----------
