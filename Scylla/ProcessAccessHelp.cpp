@@ -78,6 +78,9 @@ HANDLE ProcessAccessHelp::NativeOpenProcess(DWORD dwDesiredAccess, DWORD dwProce
 	InitializeObjectAttributes(&ObjectAttributes, 0, 0, 0, 0);
 	cid.UniqueProcess = (HANDLE)dwProcessId;
 
+	// NtOpenProcess to open the current process might fail on some packers
+	if (dwProcessId == GetCurrentProcessId())
+		return GetCurrentProcess();
 	ntStatus = NativeWinApi::NtOpenProcess(&hProcess,dwDesiredAccess,&ObjectAttributes, &cid);
 
 	if (NT_SUCCESS(ntStatus))
